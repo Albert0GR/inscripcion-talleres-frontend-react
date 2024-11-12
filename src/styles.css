@@ -1,0 +1,56 @@
+/* src/styles.css */
+.App {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .taller-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .taller-card:hover {
+    background-color: #f0f0f0;
+  }
+  
+  button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  form {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

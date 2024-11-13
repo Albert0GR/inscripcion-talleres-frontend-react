@@ -41,6 +41,7 @@ const TallerCard = ({ taller, onSelect }) => {
     <div className="taller-card" onClick={() => onSelect(taller.id)}>
       <h2>{taller.nombre}</h2>
       <h3>{taller.descripcion}</h3>
+      <h3>Responsable: {taller.encargado}</h3>
       <img src={taller.imagen} alt={`Imagen de ${taller.nombre}`} className="taller-imagen" />
       <p>Inscritos: {taller.inscritos}/{taller.cupo_maximo}</p>
       <button onClick={(e) => { e.stopPropagation(); manejarClickAlumnos(); }}>

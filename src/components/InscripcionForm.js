@@ -16,7 +16,7 @@ const InscripcionForm = ({ tallerId, talleres, onInscribir }) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/api/inscribir-alumno', {
+      const response = await axios.post('https://inscripcion-talleres.vercel.app/api/inscribir-alumno', {
         nombre,
         apellido,
         taller_id: tallerId,

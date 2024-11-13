@@ -11,7 +11,7 @@ const TallerCard = ({ taller, onSelect }) => {
     const fetchAlumnos = async () => {
       try {
         // Realizamos la solicitud para obtener todos los alumnos
-        const response = await axios.get('https://inscripcion-talleres.vercel.app/api/talleres')
+        const response = await axios.get('https://inscripcion-talleres.vercel.app/api/alumnos')
         //const response = await axios.get('http://localhost:3000/api/alumnos'); // Suponiendo que tienes un endpoint para obtener todos los alumnos
         setAlumnos(response.data);
       } catch (error) {

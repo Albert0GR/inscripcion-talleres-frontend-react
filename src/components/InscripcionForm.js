@@ -38,13 +38,19 @@ const InscripcionForm = ({ tallerId, talleres, onInscribir }) => {
       //const response = await axios.post('http://localhost:3000/api/inscribir-alumno', {
         nombre,
         apellido,
-        grado,
         taller_id: tallerId,
+        grado,
       });
       alert(`Alumno inscrito: ${response.data.nombre}`);
       onInscribir(); // Llamar a la función que deselecciona el taller
-    } catch (error) {
-      alert('Error al inscribir al alumno');
+    }catch (error) {
+      if (error.response) {
+          // Muestra el mensaje de error enviado por la API
+          alert(`Error al inscribir al alumno: ${error.response.data.message || 'Error desconocido'}`); // MUESTRA MENSAJE DE LA API
+      } else {
+          // Muestra un mensaje de error genérico
+          alert('Error al inscribir al alumno');
+      }
     }
   };
 

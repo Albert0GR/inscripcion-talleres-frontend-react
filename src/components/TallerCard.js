@@ -12,7 +12,6 @@ const TallerCard = ({ taller, onSelect }) => {
     const fetchAlumnos = async () => {
       try {
         const response = await axios.get('https://inscripcion-talleres.vercel.app/api/talleres')
-        //const response = await axios.get('http://localhost:3000/api/alumnos');
         setAlumnos(response.data);
       } catch (error) {
         console.error('Error al obtener alumnos:', error);

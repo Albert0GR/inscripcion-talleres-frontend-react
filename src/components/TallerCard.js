@@ -1,17 +1,17 @@
-// src/components/TallerCard.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const TallerCard = ({ taller, onSelect }) => {
   const [mostrarAlumnos, setMostrarAlumnos] = useState(false);
-  const [alumnos, setAlumnos] = useState([]);
-  const [alumnosFiltrados, setAlumnosFiltrados] = useState([]);
+  const [alumnos, setAlumnos] = useState([]); // Todos los alumnos
+  const [alumnosFiltrados, setAlumnosFiltrados] = useState([]); // Alumnos filtrados por el taller seleccionado
 
   useEffect(() => {
     // Obtener todos los alumnos cuando el componente se monta
     const fetchAlumnos = async () => {
       try {
-        const response = await axios.get('https://inscripcion-talleres.vercel.app/api/talleres')
+        // Realizamos la solicitud para obtener todos los alumnos
+        const response = await axios.get('http://localhost:3000/api/alumnos'); // Suponiendo que tienes un endpoint para obtener todos los alumnos
         setAlumnos(response.data);
       } catch (error) {
         console.error('Error al obtener alumnos:', error);
@@ -22,11 +22,12 @@ const TallerCard = ({ taller, onSelect }) => {
     fetchAlumnos();
   }, []); // Se ejecuta solo una vez al montar el componente
 
+  // Función para manejar el clic en "Ver Alumnos Inscritos"
   const manejarClickAlumnos = async () => {
     const password = prompt("Introduce la contraseña para ver los alumnos inscritos:");
 
     if (password === '1234') {
-      // Filtrar los alumnos para el taller actual
+      // Filtrar los alumnos para el taller actual (filtrado solo en el frontend)
       const alumnosFiltrados = alumnos.filter(alumno => alumno.taller === taller.nombre);
       setAlumnosFiltrados(alumnosFiltrados);
       setMostrarAlumnos(true);
@@ -49,9 +50,13 @@ const TallerCard = ({ taller, onSelect }) => {
         <div className="lista-alumnos">
           <h4>Alumnos Inscritos:</h4>
           <ul>
-            {alumnosFiltrados.map(alumno => (
-              <li key={alumno.id}>{alumno.nombre} {alumno.apellido}</li>
-            ))}
+            {alumnosFiltrados.length > 0 ? (
+              alumnosFiltrados.map(alumno => (
+                <li key={alumno.id}>{alumno.nombre} {alumno.apellido}</li>
+              ))
+            ) : (
+              <p>No hay alumnos inscritos en este taller.</p>
+            )}
           </ul>
         </div>
       )}

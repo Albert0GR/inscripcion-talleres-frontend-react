@@ -13,6 +13,7 @@ const App = () => {
   useEffect(() => {
     // Obtener los talleres del backend
     axios.get('http://localhost:3000/api/talleres')
+    //axios.get('https://inscripcion-talleres.vercel.app/api/talleres')
       .then((response) => setTalleres(response.data))
       .catch((error) => console.error('Error al obtener talleres:', error));
   }, []);

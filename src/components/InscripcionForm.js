@@ -75,9 +75,19 @@ const InscripcionForm = ({ tallerId, talleres, onInscribir }) => {
       {/* Lista seleccionable para el grado */}
       <select value={grado} onChange={handleGradoChange}>
         <option value="">Selecciona el grado</option>
-        <option value="Preescolar">Preescolar</option>
-        <option value="Primaria">Primaria</option>
-        <option value="Secundaria">Secundaria</option>
+        <option value="Primaria 1ro A">Primaria 1ro A</option>
+        <option value="Primaria 1ro B">Primaria 1ro B</option>
+        <option value="Primaria 2do A">Primaria 2do A</option>
+        <option value="Primaria 3ro A">Primaria 3ro A</option>
+        <option value="Primaria 4to A">Primaria 4to A</option>
+        <option value="Primaria 5to A">Primaria 5to A</option>
+        <option value="Primaria 6to A">Primaria 6to A</option>
+        <option value="Secundaria 1ro A">Secundaria 1ro A</option>
+        <option value="Secundaria 1ro B">Secundaria 1ro B</option>
+        <option value="Secundaria 2do A">Secundaria 2do A</option>
+        <option value="Secundaria 2do B">Secundaria 2do B</option>
+        <option value="Secundaria 3ro A">Secundaria 3ro A</option>
+        <option value="Secundaria 3ro B">Secundaria 3ro B</option>
       </select>
 
       <button type="submit">Inscribir</button>

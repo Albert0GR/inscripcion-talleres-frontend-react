@@ -6,20 +6,24 @@ import InscripcionForm from './components/InscripcionForm';
 
 import './styles.css';
 
-
 const App = () => {
   const [talleres, setTalleres] = useState([]);
   const [tallerSeleccionado, setTallerSeleccionado] = useState(null);
 
   useEffect(() => {
     // Obtener los talleres del backend
-    axios.get('https://inscripcion-talleres.vercel.app/api/talleres')
+    axios.get('http://localhost:3000/api/talleres')
       .then((response) => setTalleres(response.data))
       .catch((error) => console.error('Error al obtener talleres:', error));
   }, []);
 
   const handleSeleccionarTaller = (tallerId) => {
     setTallerSeleccionado(tallerId);
+  };
+
+  const handleRegresar = () => {
+    // Permite regresar a la vista de las tarjetas de los talleres
+    setTallerSeleccionado(null);
   };
 
   const handleInscripcionExitosa = () => {
@@ -33,11 +37,14 @@ const App = () => {
       
       {tallerSeleccionado ? (
         // Si hay un taller seleccionado, mostrar el formulario de inscripción
-        <InscripcionForm 
-          tallerId={tallerSeleccionado} 
-          talleres={talleres} 
-          onInscribir={handleInscripcionExitosa}
-        />
+        <div>
+          <button onClick={handleRegresar}>Regresar</button> {/* Botón para regresar */}
+          <InscripcionForm 
+            tallerId={tallerSeleccionado} 
+            talleres={talleres} 
+            onInscribir={handleInscripcionExitosa}
+          />
+        </div>
       ) : (
         // Si no hay un taller seleccionado, mostrar las tarjetas de los talleres
         <div className="talleres-list">

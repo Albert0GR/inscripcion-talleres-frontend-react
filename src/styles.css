@@ -53,4 +53,13 @@
     border: none;
     cursor: pointer;
   }
+
+  /* styles.css */
+.taller-imagen {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Ajusta según el tamaño deseado */
+  object-fit: cover; /* Recorta la imagen para que llene el espacio */
+}
+
   

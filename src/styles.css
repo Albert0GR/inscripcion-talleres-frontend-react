@@ -1,65 +1,209 @@
 /* src/styles.css */
 .App {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  
-  .taller-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 250px;
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .taller-card:hover {
-    background-color: #f0f0f0;
-  }
-  
-  button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-  }
-  
-  form {
-    max-width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-  }
-  
-  form button {
-    width: 100%;
-    background-color: #007bff;
-    padding: 10px;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* styles.css */
-.taller-imagen {
-  width: 100%;
-  height: auto;
-  max-height: 200px; /* Ajusta según el tamaño deseado */
-  object-fit: cover; /* Recorta la imagen para que llene el espacio */
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-  
+.taller-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 250px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.taller-card:hover {
+  background-color: #f0f0f0;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+form {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+form button {
+  width: 100%;
+  background-color: #007bff;
+  padding: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* styles.css */
+.taller-imagen {
+width: 100%;
+height: auto;
+max-height: 200px; /* Ajusta según el tamaño deseado */
+object-fit: cover; /* Recorta la imagen para que llene el espacio */
+}
+
+
+.inscripcion-form {
+max-width: 400px;
+margin: 50px auto;
+padding: 20px;
+background-color: #f4f7fa;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inscripcion-form h3 {
+text-align: center;
+color: #333;
+font-size: 1.5rem;
+margin-bottom: 20px;
+}
+
+.form-group {
+margin-bottom: 15px;
+}
+
+.form-group label {
+display: block;
+font-weight: bold;
+margin-bottom: 5px;
+color: #555;
+}
+
+.form-group input,
+.form-group select {
+width: 100%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 1rem;
+color: #333;
+box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+border-color: #4a90e2;
+outline: none;
+}
+
+button.submit-btn {
+width: 100%;
+padding: 12px;
+background-color: #4a90e2;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 1.2rem;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin-top: 50px; /* Espacio adicional arriba del botón */
+}
+
+button.submit-btn:hover {
+background-color: #357ab7;
+}
+
+
+
+
+
+/* Fondo de la página */
+body {
+background: linear-gradient(135deg, #f6ddcc, #e67e22); /* Gradiente suave de azul */
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+background-attachment: fixed; /* Hace que el fondo se quede fijo cuando se haga scroll */
+}
+
+/* Estilo del formulario */
+.inscripcion-form {
+max-width: 400px;
+margin: 20px auto;
+padding: 25px;
+background-color: #f39c12 ; /* Fondo blanco para el formulario */
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra sutil para resaltar */
+}
+
+.inscripcion-form h3 {
+text-align: center;
+color: #333;
+font-size: 1.5rem;
+margin-bottom: 20px;
+}
+
+.form-group {
+margin-bottom: 15px;
+}
+
+.form-group label {
+display: block;
+font-weight: bold;
+margin-bottom: 5px;
+color: #555;
+}
+
+.form-group input,
+.form-group select {
+width: 100%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 1rem;
+color: #333;
+box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+border-color: #82e0aa;
+outline: none;
+}
+
+button.submit-btn {
+width: 100%;
+padding: 12px;
+background-color: #82e0aa;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 1.2rem;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin-top: 20px; /* Espacio adicional arriba del botón */
+}
+
+button.submit-btn:hover {
+background-color: #357ab7;
+}
+
+/* Centra el select específicamente */
+.form-group select {
+margin-left: auto;
+margin-right: auto;
+}

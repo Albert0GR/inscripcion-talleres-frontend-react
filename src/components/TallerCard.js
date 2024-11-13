@@ -11,7 +11,8 @@ const TallerCard = ({ taller, onSelect }) => {
     const fetchAlumnos = async () => {
       try {
         // Realizamos la solicitud para obtener todos los alumnos
-        const response = await axios.get('http://localhost:3000/api/alumnos'); // Suponiendo que tienes un endpoint para obtener todos los alumnos
+        const response = await axios.get('https://inscripcion-talleres.vercel.app/api/talleres')
+        //const response = await axios.get('http://localhost:3000/api/alumnos'); // Suponiendo que tienes un endpoint para obtener todos los alumnos
         setAlumnos(response.data);
       } catch (error) {
         console.error('Error al obtener alumnos:', error);
@@ -26,7 +27,7 @@ const TallerCard = ({ taller, onSelect }) => {
   const manejarClickAlumnos = async () => {
     const password = prompt("Introduce la contraseña para ver los alumnos inscritos:");
 
-    if (password === '1234') {
+    if (password === 'FK2024') {
       // Filtrar los alumnos para el taller actual (filtrado solo en el frontend)
       const alumnosFiltrados = alumnos.filter(alumno => alumno.taller === taller.nombre);
       setAlumnosFiltrados(alumnosFiltrados);
@@ -52,7 +53,8 @@ const TallerCard = ({ taller, onSelect }) => {
           <ul>
             {alumnosFiltrados.length > 0 ? (
               alumnosFiltrados.map(alumno => (
-                <li key={alumno.id}>{alumno.nombre} {alumno.apellido}</li>
+                <li key={alumno.id}>{alumno.nombre} {alumno.apellido} [{alumno.grado}]</li>
+                
               ))
             ) : (
               <p>No hay alumnos inscritos en este taller.</p>

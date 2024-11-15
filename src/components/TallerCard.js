@@ -10,8 +10,7 @@ const TallerCard = ({ taller, onSelect }) => {
     // Obtener todos los alumnos cuando el componente se monta
     const fetchAlumnos = async () => {
       try {
-        // Realizamos la solicitud para obtener todos los alumnos
-        const response = await axios.get('https://inscripcion-talleres.vercel.app/api/alumnos')
+        const response = await axios.get('https://inscripcion-talleres.vercel.app/api/alumnos');
         //const response = await axios.get('http://localhost:3000/api/alumnos'); // Suponiendo que tienes un endpoint para obtener todos los alumnos
         setAlumnos(response.data);
       } catch (error) {
@@ -23,12 +22,12 @@ const TallerCard = ({ taller, onSelect }) => {
     fetchAlumnos();
   }, []); // Se ejecuta solo una vez al montar el componente
 
-  // Función para manejar el clic en "Ver Alumnos Inscritos"
+// Función para manejar el clic en "Ver Alumnos Inscritos"
   const manejarClickAlumnos = async () => {
     const password = prompt("Introduce la contraseña para ver los alumnos inscritos:");
 
     if (password === 'FK2024') {
-      // Filtrar los alumnos para el taller actual (filtrado solo en el frontend)
+       // Filtrar los alumnos para el taller actual (filtrado solo en el frontend)
       const alumnosFiltrados = alumnos.filter(alumno => alumno.taller === taller.nombre);
       setAlumnosFiltrados(alumnosFiltrados);
       setMostrarAlumnos(true);
@@ -37,10 +36,18 @@ const TallerCard = ({ taller, onSelect }) => {
     }
   };
 
+  // Divide el texto de descripción en una lista por cada guion '-'
+  const descripcionFormateada = taller.descripcion.split('-').map((item, index) => item.trim()).filter(Boolean);
+
   return (
     <div className="taller-card" onClick={() => onSelect(taller.id)}>
       <h2>{taller.nombre}</h2>
-      <h3>{taller.descripcion}</h3>
+      <h3>Materiales:</h3>
+      <ul>
+        {descripcionFormateada.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
       <h3>Responsable: {taller.encargado}</h3>
       <img src={taller.imagen} alt={`Imagen de ${taller.nombre}`} className="taller-imagen" />
       <p>Inscritos: {taller.inscritos}/{taller.cupo_maximo}</p>
@@ -55,7 +62,6 @@ const TallerCard = ({ taller, onSelect }) => {
             {alumnosFiltrados.length > 0 ? (
               alumnosFiltrados.map(alumno => (
                 <li key={alumno.id}>{alumno.nombre} {alumno.apellido} [{alumno.grado}]</li>
-                
               ))
             ) : (
               <p>No hay alumnos inscritos en este taller.</p>
